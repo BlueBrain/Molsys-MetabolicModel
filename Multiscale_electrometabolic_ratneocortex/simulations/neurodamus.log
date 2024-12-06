@@ -1,0 +1,614 @@
+numprocs=2048
+[STEP] Initializing Neurodamus... Logfile: pydamus_2024-10-06_15h09.log
+[INFO] Loading MECH lib: /gpfs/bbp.cscs.ch/data/scratch/proj137/farina/Met_Aug/spackenv/.spack-env/view/lib/libnrnmech.so
+[INFO]  => Neurodamus Mod & Hoc lib loaded.
+[INFO] Checking for plugins...
+[INFO]  => Engines Available: ['Base', 'NGV', 'METype']
+[INFO]   : Connections Types: [<ConnectionTypes.NeuroGlial: 'NeuroGlial'>, <ConnectionTypes.GlioVascular: 'GlioVascular'>, None, <ConnectionTypes.Synaptic: 'Synaptic'>, <ConnectionTypes.GapJunction: 'GapJunction'>, <ConnectionTypes.NeuroModulation: 'NeuroModulation'>]
+[STEP] Setting up Neurodamus configuration
+[INFO] Initializing Simulation Configuration and Validation
+[WARNING] Unhandled synapse type: glialglial
+[INFO] Checking simulation requirements
+[INFO] Initializing hoc config objects
+As of Oct 2020 Neurodamus uses Random123 as default
+[INFO] User-defined RNG base seed 1.0
+[WARNING] Some node set rules were replaced from /gpfs/bbp.cscs.ch/data/scratch/proj137/farina/Met_Aug/v03/v03_config/node_sets_v03_single_node_removed.json
+[INFO] Memusage (RSS) per node [MB]: Max=8027.85, Min=8026.24, Mean(Stdev)=8026.65(0.24)
+[INFO] Memusage (RSS) per task [MB]: Max=252.81, Min=250.71, Mean(Stdev)=250.86(0.17)
+[INFO] Checking Connection Configurations
+[WARNING] Delayed connection disconnect is not overriding any weight=0 Connection
+[WARNING] Delayed connection reconnect is not overriding any weight=0 Connection
+[INFO]  => CHECK No Global vars!
+[INFO]  => CHECK No Block Overrides!
+[INFO]  => CHECK No single Weight=0 blocks!
+[STEP] ================ CALCULATING LOAD BALANCE ================
+[STEP] Computing Load Balance
+[INFO] Activating experimental LB for Sonata circuit 'All'
+[INFO] Memusage (RSS) per node [MB]: Max=8132.25, Min=8125.59, Mean(Stdev)=8126.54(1.46)
+[INFO] Memusage (RSS) per task [MB]: Max=255.88, Min=253.79, Mean(Stdev)=253.95(0.22)
+[STEP] ==================== BUILDING CIRCUIT ====================
+[STEP] LOADING NODES
+[INFO] Load-balance object not present. Continuing Round-Robin...
+[INFO]  => (default) Circuit has been disabled
+[STEP] Circuit All
+[INFO] Reading Nodes (METype) info from '/gpfs/bbp.cscs.ch/project/proj137/home/mandge/mm/compute_currents_v3/nodes_new.h5'
+[INFO]  -> Distributing 'All:testNGVSSCX_AstroMini' target cells Round-Robin
+[INFO]  => Loaded info about 27962 target cells (out of 129348)
+[STEP] Circuit astrocytes
+[INFO] Reading Nodes (METype) info from '/gpfs/bbp.cscs.ch/project/proj137/NGVCircuits/rat_sscx_S1HL/V10/build/sonata/networks/nodes/astrocytes/nodes.h5'
+[INFO]  -> Distributing 'astrocytes:testNGVSSCX_AstroMini' target cells Round-Robin
+[WARNING] etype not found in node population, setting to None
+[INFO]  => Loaded info about 84 target cells (out of 42362)
+[STEP] FINALIZING CIRCUIT CELLS
+[STEP] Circuit (default)
+[STEP] Circuit All
+[INFO] Finalizing cells... Gid offset: 0
+[INFO]  > Instantiating cells... (14 in Rank 0)
+|-------20%-------40%-------60%-------80%------100%| [Time taken: 6.76 s]
+[INFO]  > Updating targets
+[INFO]  > Initializing cell network
+[STEP] Circuit astrocytes
+[INFO] Finalizing cells... Gid offset: 130000
+[INFO]  > Instantiating cells... (1 in Rank 0)
+|-------20%-------40%-------60%-------80%------100%| [Time taken: 0.55 s]
+[INFO]  > Updating targets
+[INFO]  > Initializing cell network
+[INFO] Memusage (RSS) per node [MB]: Max=10891.00, Min=10073.20, Mean(Stdev)=10324.33(135.67)
+[INFO] Memusage (RSS) per task [MB]: Max=363.74, Min=293.34, Mean(Stdev)=322.64(7.13)
+[STEP] LOADING CIRCUIT CONNECTIVITY
+[STEP] Circuit (default)
+[INFO]  => No connectivity set as internal. See projections
+[STEP] Circuit All
+[INFO]  => No connectivity set as internal. See projections
+[STEP] Circuit astrocytes
+[INFO]  => No connectivity set as internal. See projections
+[STEP] Handling projections...
+[INFO] Processing Edge file: /gpfs/bbp.cscs.ch/project/proj137/NGVCircuits/rat_sscx_S1HL/V10/build/sonata/networks/edges/functional/All/edges.h5
+[INFO]  * All__All-All (Type: ConnectionTypes.Synaptic, Src: All, Dst: All)
+[INFO] Loading connections to population: <ConnectionSet: 2481-2481 (All->All)>
+[INFO] Creating group connections (3 groups match)
+[INFO]  * Pathway testNGVSSCX -> testNGVSSCX. Created 6481933 connections
+[INFO] Processing Edge file: /gpfs/bbp.cscs.ch/project/proj137/NGVCircuits/rat_sscx_S1HL/V10/build/sonata/networks/edges/neuroglial/edges.h5
+[INFO]  * neuroglial__astrocytes-All (Type: ConnectionTypes.NeuroGlial, Src: All, Dst: astrocytes)
+[INFO] Loading connections to population: <ConnectionSet: 2481-149 (All->astrocytes)>
+[INFO] No matching Connection blocks. Loading all synapses...
+|-------20%-------40%-------60%-------80%------100%| [Time taken: 0.01 s]
+[INFO]  * [ALL]. Created 51358 connections
+[INFO] Processing Edge file: /gpfs/bbp.cscs.ch/project/proj137/NGVCircuits/rat_sscx_S1HL/V10/build/sonata/networks/edges/gliovascular/edges.h5
+[INFO]  * gliovascular__vasculature-astrocytes (Type: ConnectionTypes.GlioVascular, Src: vasculature, Dst: astrocytes)
+[INFO] GlioVascular sonata file /gpfs/bbp.cscs.ch/project/proj137/NGVCircuits/rat_sscx_S1HL/V10/build/sonata/networks/edges/gliovascular/edges.h5:gliovascular
+[INFO] Creating GlioVascular virtual connections
+[STEP] Configuring connections...
+[INFO]  * Pathway testNGVSSCX -> testNGVSSCX
+[INFO]  => Configured 6.48193e+06 connections
+[INFO]  * Pathway testNGVSSCX -> testNGVSSCX:	[DELAYED] t=0.025, weight=0
+[INFO]  => Configured 6.48193e+06 connections
+[INFO]  * Pathway testNGVSSCX -> testNGVSSCX:	[DELAYED] t=1000, weight=1
+[INFO]  => Configured 6.48193e+06 connections
+[INFO] Done, but waiting for all ranks
+[INFO] Memusage (RSS) per node [MB]: Max=11430.75, Min=10387.87, Mean(Stdev)=10707.81(169.00)
+[INFO] Memusage (RSS) per task [MB]: Max=380.66, Min=300.48, Mean(Stdev)=334.62(8.37)
+[STEP] ================ INSTANTIATING SIMULATION ================
+[STEP] Handling Replay
+[INFO] Memusage (RSS) per node [MB]: Max=11430.75, Min=10387.87, Mean(Stdev)=10708.10(169.01)
+[INFO] Memusage (RSS) per task [MB]: Max=380.66, Min=300.48, Mean(Stdev)=334.63(8.37)
+[STEP] Creating connections in the simulator
+[INFO] Instantiating synapses... Params: {'replay_mode': <ReplayMode.AS_REQUIRED: 1>}
+[INFO]  * Connections among All -> All, attach src: True
+Pop:(2481, 2481)|-------20%-------40%-------60%-------80%------100%| [Time taken: 3.34 s]
+[INFO]  => Created 33076577 synapses
+[INFO] Creating virtual cells on target Neurons for coupling to GLIA...
+[INFO] (RANK 0) Created 13390 Virtual GIDs for synapses.
+[INFO] Instantiating synapses... Params: {'base_connections': <ConnectionSet: Default>, 'conn_type': 'NeuronGlia connections'}
+[INFO]  * Connections among All -> astrocytes, attach src: True
+Pop:(2481, 149)|-------20%-------40%-------60%-------80%------100%| [Time taken: 0.01 s]
+[INFO]  => Created 437866 synapses
+[INFO] Memusage (RSS) per node [MB]: Max=14123.62, Min=12273.86, Mean(Stdev)=13136.85(323.67)
+[INFO] Memusage (RSS) per task [MB]: Max=496.89, Min=332.90, Mean(Stdev)=410.53(20.98)
+[STEP] Stimulus Apply.
+[INFO] Instantiating Stimulus Injects:
+[INFO]  * [STIM] injectStimulus gExc_L1: Stimulus gExc_L1 (RelativeOrnsteinUhlenbeck) -> Layer1
+[INFO]  * [STIM] injectStimulus gExc_L23E: Stimulus gExc_L23E (RelativeOrnsteinUhlenbeck) -> Layer23Excitatory
+[INFO]  * [STIM] injectStimulus gExc_L23I: Stimulus gExc_L23I (RelativeOrnsteinUhlenbeck) -> Layer23Inhibitory
+[INFO]  * [STIM] injectStimulus gExc_L4E: Stimulus gExc_L4E (RelativeOrnsteinUhlenbeck) -> Layer4Excitatory
+[INFO]  * [STIM] injectStimulus gExc_L4I: Stimulus gExc_L4I (RelativeOrnsteinUhlenbeck) -> Layer4Inhibitory
+[INFO]  * [STIM] injectStimulus gExc_L5E: Stimulus gExc_L5E (RelativeOrnsteinUhlenbeck) -> Layer5Excitatory
+[INFO]  * [STIM] injectStimulus gExc_L5I: Stimulus gExc_L5I (RelativeOrnsteinUhlenbeck) -> Layer5Inhibitory
+[INFO]  * [STIM] injectStimulus gExc_L6E: Stimulus gExc_L6E (RelativeOrnsteinUhlenbeck) -> Layer6Excitatory
+[INFO]  * [STIM] injectStimulus gExc_L6I: Stimulus gExc_L6I (RelativeOrnsteinUhlenbeck) -> Layer6Inhibitory
+[INFO] Memusage (RSS) per node [MB]: Max=14337.30, Min=12489.24, Mean(Stdev)=13347.08(326.21)
+[INFO] Memusage (RSS) per task [MB]: Max=503.27, Min=339.64, Mean(Stdev)=417.10(21.01)
+[STEP] Enabling modifications...
+[STEP] Reports Enabling
+[INFO]  * ndam_cai (Type: compartment, Target: testNGVSSCX, Dt: 1.000000)
+[INFO]  * ndam_adpi (Type: compartment, Target: testNGVSSCX, Dt: 1.000000)
+[INFO]  * ndam_ki (Type: compartment, Target: testNGVSSCX, Dt: 1.000000)
+[INFO]  * ndam_v (Type: compartment, Target: testNGVSSCX, Dt: 0.025000)
+[INFO]  * ndam_nai (Type: compartment, Target: testNGVSSCX, Dt: 1.000000)
+[INFO]  * ndam_atpi (Type: compartment, Target: testNGVSSCX, Dt: 1.000000)
+[INFO]  * ndam_cli (Type: compartment, Target: testNGVSSCX, Dt: 1.000000)
+[REPORTS] [info] :: Initializing PARALLEL implementation...
+[REPORTS] [info] :: Initializing communicators and preparing SONATA datasets
+[INFO] Memusage (RSS) per node [MB]: Max=14818.88, Min=12952.27, Mean(Stdev)=13806.50(329.20)
+[INFO] Memusage (RSS) per task [MB]: Max=519.32, Min=353.64, Mean(Stdev)=431.46(21.12)
+[INFO] Preparing to run simulation...
+[INFO] Executing actions after stdinit...
+[INFO] ndam sim init
+[INFO] ndam is ready
+[INFO] 
+    -----------------------------------------------------
+    --- MSR CONFIG ---
+{
+    "with_steps": false,
+    "with_bloodflow": false,
+    "with_metabolism": false,
+    "cache_save": false,
+    "cache_load": false,
+    "logging_level": 1,
+    "mesh_path": "mesh/autogen_mesh.msh",
+    "cache_path": "cache",
+    "mesh_scale": 1e-06,
+    "config_format": 3,
+    "msr_version": "develop",
+    "preprocessor": {
+        "mesh": {
+            "explode_factor": 1.001,
+            "base_length": 30.0,
+            "refinement_steps": 1
+        },
+        "node_sets": {
+            "filter_neuron": false,
+            "neuron_population_name": "All"
+        }
+    },
+    "connections": {
+        "after_metabolism_advance": [
+            {
+                "src_simulator": "neurodamus",
+                "src_get_func": "get_var",
+                "src_get_kwargs": {
+                    "var": "ina",
+                    "weight": "area"
+                },
+                "dest_simulator": "metabolism",
+                "dest_set_func": "set_parameters_idxs",
+                "dest_set_kwargs": {
+                    "idxs": [
+                        0
+                    ]
+                },
+                "action": "set"
+            },
+            {
+                "src_simulator": "neurodamus",
+                "src_get_func": "get_var",
+                "src_get_kwargs": {
+                    "var": "ik",
+                    "weight": "area"
+                },
+                "dest_simulator": "metabolism",
+                "dest_set_func": "set_parameters_idxs",
+                "dest_set_kwargs": {
+                    "idxs": [
+                        1
+                    ]
+                },
+                "action": "set"
+            },
+            {
+                "src_simulator": "neurodamus",
+                "src_get_func": "get_var",
+                "src_get_kwargs": {
+                    "var": "atpi",
+                    "weight": "volume"
+                },
+                "dest_simulator": "metabolism",
+                "src_set_func": "set_var",
+                "src_set_kwargs": {
+                    "var": "atpi"
+                },
+                "dest_get_func": "get_vm_idx",
+                "dest_get_kwargs": {
+                    "idx": 22
+                },
+                "dest_set_func": "set_vm_idxs",
+                "dest_set_kwargs": {
+                    "idxs": [
+                        22
+                    ]
+                },
+                "action": "merge"
+            },
+            {
+                "src_simulator": "neurodamus",
+                "src_get_func": "get_var",
+                "src_get_kwargs": {
+                    "var": "atpi",
+                    "weight": "volume"
+                },
+                "src_set_func": "set_var",
+                "src_set_kwargs": {
+                    "var": "adpi"
+                },
+                "dest_simulator": "metabolism",
+                "dest_set_func": "set_vm_idxs",
+                "dest_set_kwargs": {
+                    "idxs": [
+                        23
+                    ]
+                },
+                "transform_expression": "vals / 2 * (-0.92 + np.sqrt(0.92 * 0.92 + 4 * 0.92 * (1.4449961078157665 / vals - 1)))",
+                "action": "set"
+            },
+            {
+                "src_simulator": "neurodamus",
+                "src_get_func": "get_var",
+                "src_get_kwargs": {
+                    "var": "nai",
+                    "weight": "volume"
+                },
+                "dest_simulator": "metabolism",
+                "dest_set_func": "set_vm_idxs",
+                "dest_set_kwargs": {
+                    "idxs": [
+                        98
+                    ]
+                },
+                "action": "set"
+            },
+            {
+                "src_simulator": "neurodamus",
+                "src_get_func": "get_var",
+                "src_get_kwargs": {
+                    "var": "ko",
+                    "weight": "volume"
+                },
+                "dest_simulator": "metabolism",
+                "dest_set_func": "set_vm_idxs",
+                "dest_set_kwargs": {
+                    "idxs": [
+                        95
+                    ]
+                },
+                "action": "set"
+            },
+            {
+                "src_simulator": "bloodflow",
+                "src_get_func": "get_flows",
+                "src_get_kwargs": {},
+                "transform_expression": "abs(tetXbfFlowsMat.dot(vals)) * 5e-10",
+                "dest_simulator": "metabolism",
+                "dest_set_func": "set_parameters_idxs",
+                "dest_set_kwargs": {
+                    "idxs": [
+                        3,
+                        4
+                    ]
+                },
+                "action": "set"
+            },
+            {
+                "src_simulator": "bloodflow",
+                "src_get_func": "get_vols",
+                "src_get_kwargs": {},
+                "transform_expression": "tetXtetMat.dot(tetXbfVolsMat.dot(vals)) * 5e-10",
+                "dest_simulator": "metabolism",
+                "dest_set_func": "set_parameters_idxs",
+                "dest_set_kwargs": {
+                    "idxs": [
+                        5
+                    ]
+                },
+                "action": "set"
+            },
+            {
+                "src_simulator": "steps",
+                "src_get_func": "get_tet_concs",
+                "src_get_kwargs": {
+                    "species_name": "KK"
+                },
+                "transform_expression": "vals * (1.0 / (1.0e-3 * config.multiscale_run.steps.conc_factor))",
+                "dest_simulator": "metabolism",
+                "dest_set_func": "set_vm_idxs",
+                "dest_set_kwargs": {
+                    "idxs": [
+                        95
+                    ]
+                },
+                "action": "set"
+            }
+        ],
+        "before_bloodflow_advance": [
+            {
+                "src_simulator": "neurodamus",
+                "src_get_func": "get_vasc_radii",
+                "src_get_kwargs": {},
+                "dest_simulator": "bloodflow",
+                "dest_set_func": "set_radii",
+                "dest_set_kwargs": {},
+                "action": "set"
+            }
+        ],
+        "after_steps_advance": [
+            {
+                "src_simulator": "neurodamus",
+                "src_get_func": "get_var",
+                "src_get_kwargs": {
+                    "var": "ik",
+                    "weight": "area"
+                },
+                "transform_expression": "vals * 1e-8",
+                "dest_simulator": "steps",
+                "dest_set_func": "add_curr_to_conc",
+                "dest_set_kwargs": {
+                    "species_name": "KK"
+                },
+                "action": "sum"
+            }
+        ]
+    },
+    "metabolism": {
+        "ndts": 4000,
+        "u0_path": "/gpfs/bbp.cscs.ch/data/scratch/proj137/farina/Met_Aug/spackenv/.spack-env/._view/eqojr6kxtat3h22jercyspthkgm7bjr2/lib/python3.11/site-packages/multiscale_run/data/metabolismndam_reduced/u0steady_22nov22.csv",
+        "julia_code_path": "/gpfs/bbp.cscs.ch/data/scratch/proj137/farina/Met_Aug/multiscale_run/multiscale_run/data/metabolismndam_reduced/Met_2024_mito_scale_test_PS.jl",
+        "model": {
+            "model_path": "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models",
+            "pardir_path": "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models/optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg",
+            "includes": [
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//FINAL_CLEAN/data_model_full/u0_db_refined_selected_oct2021.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//general_parameters.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//ephys_parameters.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//bf_input.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//generalisations.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//GLC_transport.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//GLYCOLYSIS.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//glycogen.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//creatine.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//ATDMP.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//pyrTrCytoMito.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//lactate.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//TCA.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//ETC.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//PPP_n.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//PPP_a.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//gshgssg.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//MAS.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//gltgln.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//pyrCarb.jl",
+                "/gpfs/bbp.cscs.ch/project/proj34/metabolismndam/sim/metabolism_unit_models//optimiz_unit/enzymes/enzymes_preBigg/COMBO/parameters_GLYCOGEN_cleaned4bigg//ketones.jl"
+            ],
+            "constants": {
+                "xNEmod": 0.025,
+                "KdNEmod": 0.0003,
+                "Iinj": 0.0,
+                "synInput": 0.0
+            }
+        },
+        "constants": {
+            "ATDPtot_n": 1.4449961078157665,
+            "glycogen_au": [
+                128.0,
+                100.0,
+                100.0,
+                90.0,
+                80.0,
+                75.0
+            ],
+            "mito_volume_fraction": [
+                0.0459,
+                0.0522,
+                0.064,
+                0.0774,
+                0.0575,
+                0.0403
+            ]
+        },
+        "parameters": [
+            null,
+            null,
+            null,
+            0.0001,
+            0.0001,
+            0.023
+        ],
+        "solver_kwargs": {
+            "reltol": 1e-08,
+            "abstol": 1e-08,
+            "saveat": 1,
+            "maxiters": 1000000.0
+        },
+        "checks": {
+            "parameters": {
+                "3": {
+                    "name": "bloodflow_Fin",
+                    "kwargs": {
+                        "leb": 0.0
+                    },
+                    "response": "exclude_neuron"
+                },
+                "4": {
+                    "name": "bloodflow_Fout",
+                    "kwargs": {
+                        "leb": 0.0
+                    },
+                    "response": "exclude_neuron"
+                },
+                "5": {
+                    "name": "bloodflow_vol",
+                    "kwargs": {
+                        "leb": 0.0
+                    },
+                    "response": "exclude_neuron"
+                }
+            },
+            "vm": {
+                "22": {
+                    "name": "atpi",
+                    "kwargs": {
+                        "lb": 0.25,
+                        "hb": 2.5
+                    },
+                    "response": "abort_simulation"
+                },
+                "95": {
+                    "name": "ko",
+                    "kwargs": {
+                        "lb": 1,
+                        "hb": 10
+                    },
+                    "response": "abort_simulation"
+                },
+                "98": {
+                    "name": "nai",
+                    "kwargs": {
+                        "lb": 5,
+                        "hb": 30
+                    },
+                    "response": "abort_simulation"
+                }
+            }
+        }
+    },
+    "steps": {
+        "ndts": 1000,
+        "conc_factor": 1e-09,
+        "compname": "extra",
+        "Volsys": {
+            "name": "extra_volsys",
+            "species": {
+                "KK": {
+                    "conc_0": 3,
+                    "diffcst": 2e-09,
+                    "ncharges": 1
+                }
+            }
+        }
+    },
+    "bloodflow": {
+        "ndts": 4000,
+        "blood_viscosity": 1.2e-06,
+        "depth_ratio": 0.05,
+        "max_nb_inputs": 3,
+        "min_subgraph_size": 100,
+        "max_capillaries_diameter": 7.0,
+        "edge_scale": 2.0,
+        "node_scale": 20.0,
+        "input_v": 35000.0,
+        "vasc_axis": 1,
+        "base_pressure": 0.00133
+    },
+    "reports": {
+        "metabolism": {
+            "metab_atpi_after_sync": {
+                "src_get_func": "get_vm_idx",
+                "src_get_kwargs": {
+                    "idx": 22
+                },
+                "unit": "mM",
+                "file_name": "metab_atpi_after_sync.h5",
+                "when": "after_sync"
+            },
+            "metab_atpi_before_sync": {
+                "src_get_func": "get_vm_idx",
+                "src_get_kwargs": {
+                    "idx": 22
+                },
+                "unit": "mM",
+                "file_name": "metab_atpi_before_sync.h5",
+                "when": "before_sync"
+            },
+            "metab_adpi_after_sync": {
+                "src_get_func": "get_vm_idx",
+                "src_get_kwargs": {
+                    "idx": 23
+                },
+                "unit": "mM",
+                "file_name": "metab_adpi_after_sync.h5",
+                "when": "after_sync"
+            },
+            "metab_nai": {
+                "src_get_func": "get_vm_idx",
+                "src_get_kwargs": {
+                    "idx": 98
+                },
+                "unit": "mM",
+                "file_name": "metab_nai.h5",
+                "when": "after_sync"
+            }
+        }
+    },
+    "pkg_data_path": "/gpfs/bbp.cscs.ch/data/scratch/proj137/farina/Met_Aug/spackenv/.spack-env/._view/eqojr6kxtat3h22jercyspthkgm7bjr2/lib/python3.11/site-packages/multiscale_run/data",
+    "ndts": 10000
+}
+    --- MSR CONFIG ---
+    -----------------------------------------------------
+    
+[INFO] 
+    -----------------------------------------------------
+    --- DTS ---
+    neurodamus dt: 0.025 ms
+    steps dt: None ms
+    bloodflow dt: None ms
+    metabolism dt: None ms
+    multiscale run dt: 250.0 ms
+    SIM_END: 3000 ms
+    --- DTS ---
+    -----------------------------------------------------
+    
+[INFO] Initializing simulations...
+[INFO]    init_offsets
+[INFO]    /init_offsets: mem: 484.140625, time: 0.05849535949528217
+[INFO]    init_files
+[INFO]    /init_files: mem: 484.140625, time: 0.0004718266427516937
+[INFO] no cache found. Compute ['nXsecMat', 'nsecXnsegMat', 'nXnsegMatBool']
+[INFO]    connect_neurodamus2neurodamus
+[INFO]    get_nXsecMat
+[INFO]    /get_nXsecMat: mem: 484.203125, time: 0.0039120083674788475
+[INFO]    /connect_neurodamus2neurodamus: mem: 484.296875, time: 0.20593559369444847
+[INFO]    process_syncs
+[INFO] processing sync event: before_bloodflow_advance
+[INFO]    /process_syncs: mem: 484.296875, time: 0.0001674853265285492
+[INFO]    process_syncs
+[INFO] processing sync event: after_metabolism_advance
+[INFO]    /process_syncs: mem: 484.296875, time: 0.0001715468242764473
+[INFO]    remove_gids
+[INFO] Working GIDs to Total GIDs Ratio:
+14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 14/14, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13, 13/13
+[INFO] GIDs that failed:
+[INFO]    /remove_gids: mem: 484.296875, time: 0.2281958693638444
+[INFO] Starting simulation
+[STEP] ===============================================
+[STEP] Running the selected solvers ...
+|[INFO] Running simulation until t=250 ms
+----[INFO] Running simulation until t=500 ms
+---2[INFO] Running simulation until t=750 ms
+0%--[INFO] Running simulation until t=1000 ms
+----[INFO] Running simulation until t=1250 ms
+-40%[INFO] Running simulation until t=1500 ms
+-----[INFO] Running simulation until t=1750 ms
+--60[INFO] Running simulation until t=2000 ms
+%---[INFO] Running simulation until t=2250 ms
+----[INFO] Running simulation until t=2500 ms
+80%-[INFO] Running simulation until t=2750 ms
+----[INFO] Running simulation until t=3000 ms
+-100%| [Time taken: 7722.28 s]
+[INFO] +================================================ TIMEIT STATS =================================================+
+[INFO] |                       Event Label                        | Avg.Time | Min.Time | Max.Time | Hits R0 / Total   |
+[INFO] +---------------------------------------------------------------------------------------------------------------+
+[INFO] | initialization                                           |    49.83 |    47.94 |    54.93 |       1 / 2.05K   |
+[INFO] |  + Compute LB                                            |     0.12 |     0.11 |     0.13 |       1 / 2.05K   |
+[INFO] |  + Cell creation                                         |    14.56 |    14.56 |    14.56 |       1 / 2.05K   |
+[INFO] |  + Synapse creation                                      |     5.66 |     5.66 |     5.66 |       1 / 2.05K   |
+[INFO] |  + Enable Stimulus                                       |     0.19 |     0.17 |     0.31 |       1 / 2.05K   |
+[INFO] |  + Enable Modifications                                  |     0.00 |     0.00 |     0.00 |       1 / 2.05K   |
+[INFO] |  + Enable Reports                                        |    14.77 |    14.50 |    15.03 |       1 / 2.05K   |
+[INFO] |  + Model Finalized                                       |     2.03 |     2.03 |     2.03 |       1 / 2.05K   |
+[INFO] |  +  + stdinit                                            |     1.99 |     1.99 |     1.99 |       1 / 2.05K   |
+[INFO] | main_loop                                                |  7722.28 |  7722.28 |  7722.28 |      12 / 24.58K  |
+[INFO] |  + neurodamus_advance                                    |  7722.28 |  7722.27 |  7722.28 |      12 / 24.58K  |
+[INFO] |  +  + psolve                                             |  7722.28 |  7722.27 |  7722.28 |      12 / 24.58K  |
+[INFO] +---------------------------------------------------------------------------------------------------------------+
+
+real	132m30.711s
+user	0m0.064s
+sys	0m0.176s
