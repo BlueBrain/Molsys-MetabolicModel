@@ -6,7 +6,7 @@ This repository is organized into two main directories related to the research o
 
 ---
 
-## **1. EnergyCostMultiscale_run**
+## **1. EnergyCostMultiscaleProject**
 
 This folder contains the simulation setup and configuration files related to the article:  
 **"Title To be asked Jay."**  
