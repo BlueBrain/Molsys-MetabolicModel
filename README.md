@@ -8,9 +8,9 @@ This repository is organized into two main directories related to the research o
 
 ## **1. EnergyCostMultiscaleProject**
 
-This folder contains the simulation setup and configuration files related to the article:  
-**"Title To be asked Jay."**  
-by [Author(s)]
+This folder contains the simulation setup and configuration files related to the project:  
+**"Energy costs and efficiency of biological intelligence."**  
+contributors:  J. Coggan, S. Farina, J. King, P. Kumbhar and D. Keller
 
 ### Contents include:
 - Simulation configuration files:
