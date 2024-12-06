@@ -2,7 +2,7 @@
 
 This repository contains scripts and configurations for simulating electrophysiological and metabolic models of the rat neocortex to compute the energy cost during a simulation.
 
-authors: S. farina, J. Coogan, P. Kumbhar
+contributors:  J. Coggan, S. Farina, J. King, P. Kumbhar and D. Keller
 
 ## Simulation Types
 
