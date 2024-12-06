@@ -46,6 +46,7 @@ by Sofia Farina, Alessandro Cattabiani, Darshan Mandge, Polina Shichkova, James 
 
 Both projects use Multiscale Orchestrator. You can find the detailed setup and usage instructions in the official [MultiscaleRun documentation](https://multiscalerun.readthedocs.io/stable/) and on the [MultiscaleRun GitHub repository](https://github.com/BlueBrain/MultiscaleRun/tree/main). More details specific to each project can be found in the `README` files within each respective folder.
 
+---
 
 The development of this software was supported by funding to the Blue Brain Project, a research center of the École polytechnique fédérale de Lausanne (EPFL), from the Swiss government’s ETH Board of the Swiss Federal Institutes of Technology.
 
