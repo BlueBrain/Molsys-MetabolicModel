@@ -37,3 +37,10 @@ For further details, refer to Farina et al. (2025).
 - Shichkova et al. (2023) "Breakdown and rejuvenation of aging brain energy metabolism"
 - Farina et al. (2024) "A Multiscale Electro-Metabolic Model of a Rat Neocortical Circuit Reveals the Impact of Ageing on Central Cortical Layers"
 - Neurodamus: https://doi.org/10.5281/zenodo.8075201
+
+
+---
+
+The development of this software was supported by funding to the Blue Brain Project, a research center of the École polytechnique fédérale de Lausanne (EPFL), from the Swiss government’s ETH Board of the Swiss Federal Institutes of Technology.
+
+Copyright (c) 2024 Blue Brain Project/EPFL
