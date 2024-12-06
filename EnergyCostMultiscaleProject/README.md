@@ -24,7 +24,7 @@ Follow the instructions provided in the [Multiscale Orchestrator Documentation](
    - `simulation_config.json`
    - `simulation.sbatch`
 
-For further details, refer to Farina et al. (2025).
+For further details, refer to Farina et al. (2024).
 
 ## How to Compute the Simulation's Power Usage
 
