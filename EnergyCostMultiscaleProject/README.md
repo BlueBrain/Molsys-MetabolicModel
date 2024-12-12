@@ -29,7 +29,7 @@ For further details, refer to Farina et al. (2024).
 ## How to Compute the Simulation's Power Usage
 
 1. Submit the simulation job as usual.
-2. Wait for the job to start. **Note:** This requires monitoring the job status, but it is manageable as it only needs to be done a few times.
+2. Wait for the job to start.
 3. Once the job has started, run the attached `power_mon.py` script.
 4. The Python script will generate a CSV file named `power_usage.csv` containing the power usage data.
 
